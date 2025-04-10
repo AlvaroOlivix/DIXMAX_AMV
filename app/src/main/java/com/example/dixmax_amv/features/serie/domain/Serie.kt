@@ -1,13 +1,14 @@
 package com.example.dixmax_amv.features.serie.domain
 
-class Serie(
+data class Serie(
     val id: String,
     val title: String,
-    val description: String,
+    val categories: List<Category>,
     val released: String,
     val country: String,
     val rated: String,
     val seasons: String,
     val poster: String,
-    val score: String
+    val score: String,
+    val bookMark:Boolean
 )

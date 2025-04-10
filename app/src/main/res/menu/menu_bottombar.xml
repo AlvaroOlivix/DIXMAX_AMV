@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_1"
+        android:enabled="true"
+        android:icon="@drawable/baseline_flash_on_24"
+        android:title="Enlaces"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/item_2"
+        android:enabled="true"
+        android:icon="@drawable/baseline_tv_24"
+        android:title="Series"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/item_3"
+        android:enabled="true"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/item_4"
+        android:enabled="true"
+        android:icon="@drawable/baseline_movie_24"
+        android:title="Peliculas"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/item_5"
+        android:enabled="true"
+        android:icon="@drawable/baseline_list_24"
+        android:title="NewFilter"
+        app:showAsAction="always" />
+</menu>
