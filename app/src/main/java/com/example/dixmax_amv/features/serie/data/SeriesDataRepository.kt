@@ -23,6 +23,13 @@ class SeriesDataRepository(
 
     override suspend fun getSerieById(serieId: String): Serie? {
         val localSerie = localDbSeriesDataSource.getSerieById(serieId)
+        if (localSerie == null){
+            val remoteSerie = remoteDataSource.getSerieById(serieId)
+            if (remoteSerie != null) {
+                localDbSeriesDataSource.saveSerie(remoteSerie)
+            }
+            return remoteSerie
+        }
         return localSerie
     }
 

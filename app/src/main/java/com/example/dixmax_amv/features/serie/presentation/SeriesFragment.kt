@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dixmax_amv.R
 import com.example.dixmax_amv.databinding.FragmentListSeriesBinding
 import com.example.dixmax_amv.features.serie.presentation.adater.SerieAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,12 +36,36 @@ class SeriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("@dev", "Fragment cargado")
-        adapter = SerieAdapter{viewModel.toggleBookmark(it)}
+        adapter = SerieAdapter(
+            bookMarkClick = { viewModel.toggleBookmark(it) },
+            oClick = { navigateToDetail(it.id) }
+        )
         setUpRecycler()
-        viewModel.loadAlbums()
         setUpObserver()
+        viewModel.loadAlbums()
+        binding.lToolBar.mainToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action -> {
+                    viewModel.showBookMarked()
+                    if (viewModel.isBookmarked) {
+                        it.setIcon(R.drawable.baseline_bookmark_24)
+                    } else (it.setIcon(R.drawable.outline_bookmark_border_24))
+                    true
+                }
 
+                R.id.newest -> {
+                    viewModel.showNewest()
+                    true
+                }
 
+                R.id.ageRate -> {
+                    viewModel.showAgeRated()
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 
     private fun setUpObserver() {
@@ -53,21 +78,26 @@ class SeriesFragment : Fragment() {
                 Log.d("@dev", "Error en la carga de datos")
             }
             adapter.submitList(it.series)
-
         }
         viewModel.uiState.observe(viewLifecycleOwner, observer)
-
     }
 
     private fun setUpRecycler() {
         binding.apply {
             recyclerSeries.layoutManager =
                 GridLayoutManager(context, 3) // o LinearLayoutManager si es vertical
-
             recyclerSeries.adapter = adapter
-
         }
     }
+
+    private fun navigateToDetail(serieId: String) {
+        findNavController().navigate(
+            SeriesFragmentDirections.fragmentSeriesToFragmentDetailSerie(
+                serieId
+            )
+        )
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

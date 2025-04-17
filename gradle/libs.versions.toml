@@ -14,7 +14,8 @@ appcompat = "1.6.1"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
-kspVersion="2.0.21-1.0.27"
+kspVersion = "2.0.21-1.0.27"
+safeAr = "2.8.9"
 roomRuntime = "2.6.1"
 navigationFragmentKtx = "2.8.9"
 navigationUiKtx = "2.8.9"
@@ -47,5 +48,5 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
-
+safeArgs = { id = "androidx.navigation.safeargs", version.ref="safeAr" }
 

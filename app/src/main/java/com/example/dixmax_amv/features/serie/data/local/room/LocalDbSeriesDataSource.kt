@@ -9,8 +9,8 @@ class LocalDbSeriesDataSource(private val serieDao: SerieDao) {
         return serieDao.getAll().map { it.toModel() }
     }
 
-    fun getSerieById(serieId: String): Serie {
-        return serieDao.getById(serieId).toModel()
+    fun getSerieById(serieId: String): Serie? {
+        return serieDao.getById(serieId)?.toModel()
     }
 
     fun saveSeries(series: List<Serie>) {

@@ -3,6 +3,7 @@ package com.example.dixmax_amv.features.serie.data.local.room
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 
@@ -12,13 +13,13 @@ interface SerieDao {
     @Query("SELECT * FROM tableSeries")
     fun getAll(): List<SerieEntity>
 
-    @Query("SELECT * FROM tableSeries WHERE id = :serieId")
-    fun getById(serieId: String): SerieEntity
+    @Query("SELECT * FROM tableSeries WHERE id = :serieId LIMIT 1")
+    fun getById(serieId: String): SerieEntity?
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveSeries(vararg series: SerieEntity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveSerie(serie: SerieEntity)
 
     @Delete

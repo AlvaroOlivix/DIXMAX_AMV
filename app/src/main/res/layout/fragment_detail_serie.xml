@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    tools:context="com.example.dixmax_amv.features.serie.presentation.SerieDetailFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/arc" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toRightOf="@id/card"
+        app:layout_constraintTop_toTopOf="@id/card"
+        tools:text="THE ROOKIE" />
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toRightOf="@id/card"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="2020" />
+
+    <ImageButton
+        android:id="@+id/rated"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="@id/year"
+        app:layout_constraintLeft_toRightOf="@id/year"
+        app:layout_constraintTop_toTopOf="@id/year"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/seasons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toRightOf="@id/rated"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="3 Temporadas" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@id/mBottomDetail"
+        app:layout_constraintEnd_toEndOf="@id/exit_button"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/year"
+        tools:text="Esta serie americana ambientada en la época de los 2000, en el Bronx más profundo hay un chico inteligente que cambiará el mundo" />
+
+    <ImageButton
+        android:id="@+id/exit_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/baseline_keyboard_arrow_down_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/mBottomDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toTopOf="@id/info"
+        app:layout_constraintTop_toBottomOf="@id/card"
+        app:menu="@menu/menu_bottom_detail" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:dividerColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mBottomDetail" />
+
+    <ImageView
+        android:id="@+id/info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/baseline_info_24"
+        app:layout_constraintBottom_toBottomOf="@id/epinfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    <TextView
+        android:id="@+id/epinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        android:text="Episodios e información"
+        app:layout_constraintLeft_toRightOf="@id/info"
+        app:layout_constraintTop_toBottomOf="@id/mBottomDetail" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="@id/epinfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/epinfo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

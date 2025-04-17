@@ -9,7 +9,6 @@ class SerieDiffUtil(): DiffUtil.ItemCallback<Serie>() {
         return oldItem.id == newItem.id
     }
 
-    @SuppressLint("DiffUtilEquals")
     override fun areContentsTheSame(oldItem: Serie, newItem: Serie): Boolean {
         return oldItem == newItem
     }

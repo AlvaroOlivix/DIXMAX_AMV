@@ -18,15 +18,17 @@ class SeriesViewModel(val getSeriesUseCase: GetSeriesUseCase) : ViewModel() {
     val uiState: LiveData<UiState> get() = _uiState
 
     private var updatedList: List<Serie> = emptyList()
+    var isBookmarked: Boolean = false
+    private var isNewest: Boolean = false
+    private var isAged: Boolean = false
 
     fun loadAlbums() {
-        Log.d("@dev", "Se ha llamado a loadAlbums()")
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val loaded = getSeriesUseCase()
+                updatedList = getSeriesUseCase()
                 Log.d("@dev", "Lista cargada")
-                _uiState.postValue(loaded?.let { UiState(series = it) })
+                _uiState.postValue(UiState(series = updatedList))
             } catch (e: Exception) {
                 _uiState.postValue(UiState(error = true))
             }
@@ -38,6 +40,45 @@ class SeriesViewModel(val getSeriesUseCase: GetSeriesUseCase) : ViewModel() {
             updatedList = updatedList.map {
                 if (it.id == serie.id) serie.copy(bookMark = !serie.bookMark) else it
             }
+            _uiState.postValue(UiState(series = updatedList))
+        }
+    }
+
+    fun showBookMarked() {
+        isBookmarked = !isBookmarked
+        viewModelScope.launch(Dispatchers.IO) {
+            val bookmarkedSeries = if (isBookmarked) {
+
+                updatedList.filter { it.bookMark }
+            } else {
+                updatedList
+            }
+            _uiState.postValue(UiState(series = bookmarkedSeries))
+        }
+    }
+
+    fun showNewest() {
+        isNewest = !isNewest
+        viewModelScope.launch(Dispatchers.IO) {
+
+            val markedNew = if (isNewest) {
+                updatedList.filter { it.released.contains("2025") }
+            } else {
+                updatedList
+            }
+            _uiState.postValue(UiState(series = markedNew))
+        }
+    }
+
+    fun showAgeRated() {
+        isAged = !isAged
+        viewModelScope.launch(Dispatchers.IO) {
+            val aged = if(isAged){
+                updatedList.filter { it.rated.contains("+18") }
+            }else{
+                updatedList
+            }
+            _uiState.postValue(UiState(series = aged))
         }
     }
 

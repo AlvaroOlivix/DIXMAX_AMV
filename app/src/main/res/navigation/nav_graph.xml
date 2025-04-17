@@ -2,11 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/fragment_Series"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_Series">
     <fragment
         android:id="@+id/fragment_Series"
         android:name="com.example.dixmax_amv.features.serie.presentation.SeriesFragment"
-        tools:layout="@layout/fragment_list_series" />
+        tools:layout="@layout/fragment_list_series">
+        <action
+            android:id="@+id/fragment_series_to_fragment_detail_serie"
+            app:destination="@id/fragment_serie_detail" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragment_serie_detail"
+        android:name="com.example.dixmax_amv.features.serie.presentation.SerieDetailFragment"
+        tools:layout="@layout/fragment_detail_serie">
+        <argument
+            android:name="serieId"
+
+            app:argType="string" />
+    </dialog>
 
 </navigation>

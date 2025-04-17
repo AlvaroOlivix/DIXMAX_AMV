@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_1_detail"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/baseline_assistant_navigation_24"
+        android:title="Reproducir" />
+    <item
+        android:id="@+id/item_2_detail"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/baseline_av_timer_24"
+        android:title="Actualizar" />
+    <item
+        android:id="@+id/item_3_detail"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/baseline_format_list_bulleted_add_24"
+        android:title="Marcar" />
+    <item
+        android:id="@+id/item_4_detail"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/baseline_add_24"
+        android:title="Añadir enlaces" />
+</menu>
