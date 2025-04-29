@@ -9,19 +9,19 @@
         android:title="Enlaces"
         app:showAsAction="always" />
     <item
-        android:id="@+id/item_2"
+        android:id="@+id/fragment_Series"
         android:enabled="true"
         android:icon="@drawable/baseline_tv_24"
         android:title="Series"
         app:showAsAction="always" />
     <item
-        android:id="@+id/item_3"
+        android:id="@+id/fragment_Home"
         android:enabled="true"
         android:icon="@drawable/baseline_home_24"
         android:title="Home"
         app:showAsAction="always" />
     <item
-        android:id="@+id/item_4"
+        android:id="@+id/fragment_Movies"
         android:enabled="true"
         android:icon="@drawable/baseline_movie_24"
         android:title="Peliculas"
