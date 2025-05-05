@@ -1,4 +1,4 @@
-package com.example.dixmax_amv.features.serie.presentation
+package com.example.dixmax_amv.features.serie.presentation.uiSerie
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.dixmax_amv.core.extensions.loadImageUrl
@@ -41,7 +40,6 @@ class SerieDetailFragment : BottomSheetDialogFragment() {
 
     }
 
-
     private fun setUpObserver() {
         val observer = Observer<SerieDetailViewModel.UiState>() {
             if (it.loading) {
@@ -60,16 +58,20 @@ class SerieDetailFragment : BottomSheetDialogFragment() {
             if (serie != null) {
                 title.text = serie.title
                 year.text = serie.released
-                seasons.text = serie.seasons
-                description.text = serie.title
+                description.text = serie.rated
                 poster.loadImageUrl(serie.poster)
-                exitButton.setOnClickListener{
+                exitButton.setOnClickListener {
                     findNavController().navigateUp()
                 }
+                root.setOnClickListener { navigeteSeasons(serie.id) }
             } else {
                 Log.d("@dev", "No hay datos para mostrar")
             }
         }
+    }
+
+    private fun navigeteSeasons(serieId: String) {
+        findNavController().navigate(SerieDetailFragmentDirections.serieDetailToSeasonsList(serieId))
     }
 
 

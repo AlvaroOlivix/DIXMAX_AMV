@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dixmax_amv.R
 import com.example.dixmax_amv.databinding.FragmentListMoviesBinding
@@ -44,7 +45,6 @@ class MoviesFragment : Fragment() {
         viewModel.loadMovies()
     }
 
-
     private fun setUpObserver() {
         val observer = Observer<MoviesViewModel.UiState>() {
             if (it.loading) {
@@ -61,7 +61,7 @@ class MoviesFragment : Fragment() {
     private fun setUpRecycler() {
         binding.apply {
             recyclerSeries.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                GridLayoutManager(context, 3)
             recyclerSeries.adapter = adapter
         }
     }

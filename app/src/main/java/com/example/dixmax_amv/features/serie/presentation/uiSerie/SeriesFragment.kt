@@ -1,4 +1,4 @@
-package com.example.dixmax_amv.features.serie.presentation
+package com.example.dixmax_amv.features.serie.presentation.uiSerie
 
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dixmax_amv.R
 import com.example.dixmax_amv.databinding.FragmentListSeriesBinding
-import com.example.dixmax_amv.features.serie.presentation.adater.SerieAdapter
+import com.example.dixmax_amv.features.serie.presentation.uiSerie.adater.SerieAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SeriesFragment : Fragment() {
@@ -42,7 +42,7 @@ class SeriesFragment : Fragment() {
         )
         setUpRecycler()
         setUpObserver()
-        viewModel.loadAlbums()
+        viewModel.loadSeries()
         binding.lToolBar.mainToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action -> {
@@ -75,7 +75,7 @@ class SeriesFragment : Fragment() {
                 Log.d("@dev", "Cargando datos")
             }
             if (it.error) {
-                Log.d("@dev", "Error en la carga de datos")
+                Log.d("@dev", "Error en Series")
             }
             adapter.submitList(it.series)
         }

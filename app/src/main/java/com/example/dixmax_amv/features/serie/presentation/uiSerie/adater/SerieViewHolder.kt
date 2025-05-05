@@ -1,4 +1,4 @@
-package com.example.dixmax_amv.features.serie.presentation.adater
+package com.example.dixmax_amv.features.serie.presentation.uiSerie.adater
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dixmax_amv.R
@@ -12,7 +12,7 @@ class SerieViewHolder(private val binding: ItemSerieBinding) :
     fun bind(serie: Serie, bookMarkClick: (Serie) -> Unit, oClick: (Serie) -> Unit) {
         binding.apply {
             score.text = serie.score
-            rated.text = serie.rated
+
             year.text = serie.released
             poster.loadImageUrl(serie.poster)
             bookmarkAction.setOnClickListener { bookMarkClick(serie) }

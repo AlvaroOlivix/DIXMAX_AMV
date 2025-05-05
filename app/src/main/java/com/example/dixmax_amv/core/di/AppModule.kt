@@ -3,6 +3,7 @@ package com.example.dixmax_amv.core.di
 import android.content.Context
 import com.example.dixmax_amv.core.db.DixmaxDataBase
 import com.example.dixmax_amv.core.di.FireStoreProvider.provideFirestore
+import com.example.dixmax_amv.features.enlace.data.local.LinkDao
 import com.example.dixmax_amv.features.movie.data.local.room.MovieDao
 import com.example.dixmax_amv.features.serie.data.local.room.SerieDao
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,6 +32,11 @@ class AppModule {
     @Single
     fun provideFirestore(): FirebaseFirestore {
         return FireStoreProvider.provideFirestore()
+    }
+
+    @Single
+    fun provideLinkDao(db: DixmaxDataBase): LinkDao {
+        return db.linkDao()
     }
 
 }

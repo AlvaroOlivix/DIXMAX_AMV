@@ -1,6 +1,5 @@
-package com.example.dixmax_amv.features.serie.presentation.adater
+package com.example.dixmax_amv.features.serie.presentation.uiSerie.adater
 
-import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
 import com.example.dixmax_amv.features.serie.domain.Serie
 

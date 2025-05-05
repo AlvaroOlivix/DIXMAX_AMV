@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="105dp"
+    android:layout_margin="16dp">
+
+    <ImageView
+        android:id="@+id/preview"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/arc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="1. El final de los tiempos"
+        app:layout_constraintLeft_toRightOf="@id/preview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="25 Dec 2024"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/preview"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/baseline_backup_24"
+        app:layout_constraintBottom_toBottomOf="@id/preview"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="@id/preview" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Veinte años despues de que un a pandemia mundial arrasse el planeta, los supervivientes Joel y Tess deben llevar a cabo un misión que podría cambiarlo todo"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/preview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

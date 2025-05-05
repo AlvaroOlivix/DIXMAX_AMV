@@ -16,9 +16,6 @@ class MoviesViewModel(private val getAllMoviesUseCase: GetAllMoviesUseCase) : Vi
     private var _uiState = MutableLiveData(UiState())
     val uiState: LiveData<UiState> get() = _uiState
 
-    private var allMovies:List<Movie> = emptyList()
-    var filteredList:List<Movie> = emptyList()
-
     fun loadMovies() {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
@@ -32,15 +29,7 @@ class MoviesViewModel(private val getAllMoviesUseCase: GetAllMoviesUseCase) : Vi
             }
         }
     }
-    fun filter(query: String) {
-        filteredList = if (query.isBlank()) {
-            allMovies
-        } else {
-            allMovies.filter {
-                it.title.contains(query, ignoreCase = true)
-            }
-        }
-    }
+
 
     data class UiState(
         val movies: List<Movie> = emptyList(),

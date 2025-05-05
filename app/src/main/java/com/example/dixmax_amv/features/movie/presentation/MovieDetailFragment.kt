@@ -58,6 +58,7 @@ class MovieDetailFragment : BottomSheetDialogFragment() {
                 title.text = movie.title
                 awards.text = movie.award.name
                 poster.loadImageUrl(movie.poster)
+                description.text = movie.description
             }
             else {
                 Log.d("@dev", "No hay datos para mostrar")

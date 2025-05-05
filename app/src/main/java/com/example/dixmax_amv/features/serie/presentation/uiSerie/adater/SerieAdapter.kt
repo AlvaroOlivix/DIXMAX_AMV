@@ -1,4 +1,4 @@
-package com.example.dixmax_amv.features.serie.presentation.adater
+package com.example.dixmax_amv.features.serie.presentation.uiSerie.adater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

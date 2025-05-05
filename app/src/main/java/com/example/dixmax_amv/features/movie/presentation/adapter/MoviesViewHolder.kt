@@ -13,6 +13,7 @@ class MoviesViewHolder(private val binding: ItemMovieBinding) :
             poster.loadImageUrl(movie.poster)
             root.setOnClickListener { onCLick(movie) }
             awards.text = movie.award.name
+
         }
     }
 }

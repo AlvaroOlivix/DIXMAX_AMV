@@ -1,4 +1,4 @@
-package com.example.dixmax_amv.features.serie.presentation
+package com.example.dixmax_amv.features.serie.presentation.uiSerie
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -22,24 +22,19 @@ class SerieDetailViewModel(private val getSerieUseCase: GetSerieUseCase) : ViewM
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                Log.d("@dev", "Buscando serie con id: $serieId")
                 val serieVM = getSerieUseCase(serieId)
-                Log.d("@dev", "Serie cargada: $serieVM")
-
-                withContext(Dispatchers.Main) {
-                    _uiState.value = UiState(serie = serieVM)
-                }
+                _uiState.postValue(UiState(serie = serieVM))
             } catch (e: Exception) {
-                Log.e("@dev", "Error al cargar serie: ${e.message}", e)
-                _uiState.postValue(UiState(error = true))
-            }
+            Log.e("@dev", "Error al cargar serie: ${e.message}", e)
+            _uiState.postValue(UiState(error = true))
         }
-
     }
 
-    data class UiState(
-        val serie: Serie? = null,
-        val loading: Boolean = false,
-        val error: Boolean = false
-    )
+}
+
+data class UiState(
+    val serie: Serie? = null,
+    val loading: Boolean = false,
+    val error: Boolean = false
+)
 }

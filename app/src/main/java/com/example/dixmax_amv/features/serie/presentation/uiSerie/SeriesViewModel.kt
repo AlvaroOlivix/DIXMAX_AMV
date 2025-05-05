@@ -1,4 +1,4 @@
-package com.example.dixmax_amv.features.serie.presentation
+package com.example.dixmax_amv.features.serie.presentation.uiSerie
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -22,7 +22,7 @@ class SeriesViewModel(val getSeriesUseCase: GetSeriesUseCase) : ViewModel() {
     private var isNewest: Boolean = false
     private var isAged: Boolean = false
 
-    fun loadAlbums() {
+    fun loadSeries() {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -30,6 +30,7 @@ class SeriesViewModel(val getSeriesUseCase: GetSeriesUseCase) : ViewModel() {
                 Log.d("@dev", "Lista cargada")
                 _uiState.postValue(UiState(series = updatedList))
             } catch (e: Exception) {
+                Log.d("@dev", "Error cargando series", e)
                 _uiState.postValue(UiState(error = true))
             }
         }

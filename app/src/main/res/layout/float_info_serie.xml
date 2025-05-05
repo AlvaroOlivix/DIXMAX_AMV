@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="50dp"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/dialogDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="The Walkind Dead está ambientada en un futuro postapocaliptico con la Tierra devastada por el efecto de un cataclismo, que ha provocado la mutación de zombies de la mayor parte de los habitantes del planeta. La serie, explora las dificultades de los protagonistas para sobrevivir en un mundo poblado por el horror, así com las relacciones personales que se establecen entre ellos, en ocasiones también una amenaza para su supervivencia." />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/closeBtn"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/gre"
+        android:gravity="center"
+        android:outlineAmbientShadowColor="@color/white"
+        android:text="CERRAR"
+        android:textColor="@color/white"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>

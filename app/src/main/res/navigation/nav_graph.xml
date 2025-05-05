@@ -6,13 +6,13 @@
     app:startDestination="@id/fragment_Home">
     <fragment
         android:id="@+id/fragment_Home"
-        android:name="com.example.dixmax_amv.HomeFragment"
+        android:name="com.example.dixmax_amv.features.serie.presentation.uiHome.HomeFragment"
         tools:layout="@layout/fragment_home">
 
     </fragment>
     <fragment
         android:id="@+id/fragment_Series"
-        android:name="com.example.dixmax_amv.features.serie.presentation.SeriesFragment"
+        android:name="com.example.dixmax_amv.features.serie.presentation.uiSerie.SeriesFragment"
         tools:layout="@layout/fragment_list_series">
         <action
             android:id="@+id/fragment_series_to_fragment_detail_serie"
@@ -20,11 +20,14 @@
     </fragment>
     <dialog
         android:id="@+id/fragment_serie_detail"
-        android:name="com.example.dixmax_amv.features.serie.presentation.SerieDetailFragment"
+        android:name="com.example.dixmax_amv.features.serie.presentation.uiSerie.SerieDetailFragment"
         tools:layout="@layout/fragment_detail_serie">
         <argument
             android:name="serieId"
             app:argType="string" />
+        <action
+            android:id="@+id/serie_detail_to_seasons_list"
+            app:destination="@id/fragment_seasons" />
     </dialog>
     <fragment
         android:id="@+id/fragment_Movies"
@@ -40,6 +43,42 @@
         tools:layout="@layout/fragment_detail_movie">
         <argument
             android:name="movieId"
+            app:argType="string" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/fragment_links"
+        android:name="com.example.dixmax_amv.features.enlace.presentation.LinksFragment"
+        tools:layout="@layout/fragment_list_links">
+        <action
+            android:id="@+id/list_links_to_detail_list_options"
+            app:destination="@+id/fragment_options" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_options"
+        android:name="com.example.dixmax_amv.features.enlace.presentation.OptionsFragment"
+        tools:layout="@layout/fragment_list_options">
+        <argument
+            android:name="linkId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_seasons"
+        android:name="com.example.dixmax_amv.features.serie.presentation.uiSeason.SeasonsFragment"
+        tools:layout="@layout/fragment_list_seasons">
+        <argument
+            android:name="serieId"
+            app:argType="string" />
+        <action
+            android:id="@+id/fragment_seasons_to_float_info_seasons"
+            app:destination="@id/fragment_info_seasons" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragment_info_seasons"
+        android:name="com.example.dixmax_amv.features.serie.presentation.uiSeason.SeasonInfoSerieFragment"
+        tools:layout="@layout/float_info_serie">
+        <argument
+            android:name="serieId"
             app:argType="string" />
     </dialog>
 
