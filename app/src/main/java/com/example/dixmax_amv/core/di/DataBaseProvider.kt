@@ -9,6 +9,7 @@ object DataBaseProvider {
         return Room.databaseBuilder(
             context,
             DixmaxDataBase::class.java, "db"
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
 }

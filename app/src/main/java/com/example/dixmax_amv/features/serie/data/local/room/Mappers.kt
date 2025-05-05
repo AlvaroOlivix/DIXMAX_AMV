@@ -9,7 +9,6 @@ fun SerieEntity.toModel(): Serie {
     return Serie(
         this.id,
         this.title,
-        this.categories,
         this.released,
         this.country,
         this.rated,
@@ -25,7 +24,6 @@ fun Serie.toEntity(): SerieEntity {
     return SerieEntity(
         this.id,
         this.title,
-        this.categories,
         this.released,
         this.country,
         this.rated,

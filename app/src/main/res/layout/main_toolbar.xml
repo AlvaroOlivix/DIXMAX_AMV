@@ -15,4 +15,5 @@
         app:navigationIcon="@drawable/baseline_arrow_back_24"
         app:title="DIXMAX"
         app:titleCentered="true" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

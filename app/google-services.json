@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "558013999545",
+    "project_id": "dixmax-e247e",
+    "storage_bucket": "dixmax-e247e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558013999545:android:a03ce0489a1c080db2ae68",
+        "android_client_info": {
+          "package_name": "com.example.dixmax_amv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6zMWpMze3HkSmaqv6CiWno_JQaSssmRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

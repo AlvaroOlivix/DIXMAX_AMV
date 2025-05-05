@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    tools:context="com.example.dixmax_amv.features.serie.presentation.SerieDetailFragment">
+    android:layout_margin="16dp"
+    tools:context="com.example.dixmax_amv.features.serie.presentation.uiSerie.SerieDetailFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="110dp"
         android:layout_height="150dp"
-        android:layout_margin="10dp"
+        android:layout_margin="16dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -67,37 +67,38 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@id/mBottomDetail"
+        android:ellipsize="end"
+        android:maxLines="5"
+        app:layout_constraintBottom_toTopOf="@id/divider"
         app:layout_constraintEnd_toEndOf="@id/exit_button"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/year"
         tools:text="Esta serie americana ambientada en la época de los 2000, en el Bronx más profundo hay un chico inteligente que cambiará el mundo" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/exit_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/baseline_keyboard_arrow_down_24"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/gre"
+        app:cornerRadius="8dp"
+        app:iconSize="30dp"
+        app:icon="@drawable/baseline_arrow_drop_down_24"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/mBottomDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toTopOf="@id/info"
-        app:layout_constraintTop_toBottomOf="@id/card"
-        app:menu="@menu/menu_bottom_detail" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="16dp"
         app:dividerColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mBottomDetail" />
+        app:layout_constraintTop_toBottomOf="@id/card" />
 
     <ImageView
         android:id="@+id/info"
@@ -117,7 +118,7 @@
         android:gravity="center_vertical"
         android:text="Episodios e información"
         app:layout_constraintLeft_toRightOf="@id/info"
-        app:layout_constraintTop_toBottomOf="@id/mBottomDetail" />
+        app:layout_constraintTop_toBottomOf="@id/divider" />
 
     <ImageView
         android:layout_width="30dp"

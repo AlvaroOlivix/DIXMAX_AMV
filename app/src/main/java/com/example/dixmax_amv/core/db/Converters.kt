@@ -1,17 +1,17 @@
 package com.example.dixmax_amv.core.db
 
 import androidx.room.TypeConverter
-import com.example.dixmax_amv.features.serie.domain.Category
+import com.example.dixmax_amv.features.serie.domain.Season
 import com.google.gson.Gson
 
 class Converters {
     @TypeConverter
-    fun fromCategoryList(categories: List<Category>): String {
-        return Gson().toJson(categories)
+    fun fromSeasonsToData(seasons: List<Season>): String {
+        return Gson().toJson(seasons)
     }
 
     @TypeConverter
-    fun toCategoryList(data: String): List<Category> {
-        return Gson().fromJson(data, Array<Category>::class.java).toList()
+    fun toSeasonList(data: String): List<Season> {
+        return Gson().fromJson(data, Array<Season>::class.java).toList()
     }
 }

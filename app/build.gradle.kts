@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.safeArgs)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -68,6 +69,11 @@ dependencies {
 
     implementation(libs.coil) // Versión estable más reciente en el momento de este mensaje
     implementation(libs.coil.network.okhttp)
+
+    implementation(libs.google.services)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
 
 
     //Tests
