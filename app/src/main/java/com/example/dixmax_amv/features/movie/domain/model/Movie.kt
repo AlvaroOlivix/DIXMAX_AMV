@@ -5,5 +5,6 @@ data class Movie(
     val title: String,
     val description: String,
     val poster: String,
-    val award: Award
+    val award: Award,
+    val isFavorite: Boolean
 )

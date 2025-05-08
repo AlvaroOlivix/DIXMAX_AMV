@@ -9,7 +9,8 @@ fun MovieFsEntity.toDomain(award: Award): Movie = Movie(
     title = title,
     description = description,
     poster = poster,
-    award = award
+    award = award,
+    isFavorite = false
 )
 
 // Movie a MovieFsEntity (solo guarda el ID del award)

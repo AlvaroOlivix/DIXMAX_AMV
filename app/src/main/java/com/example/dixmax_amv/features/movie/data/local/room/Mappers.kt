@@ -8,7 +8,8 @@ fun Movie.toEntity() =
         this.title,
         this.description,
         this.poster,
-        this.award
+        this.award,
+        this.isFavorite
     )
 
 fun MovieEntity.toModel() = Movie(
@@ -16,5 +17,6 @@ fun MovieEntity.toModel() = Movie(
     this.title,
     this.description,
     this.poster,
-    this.award
+    this.award,
+    this.isFavorite
 )
