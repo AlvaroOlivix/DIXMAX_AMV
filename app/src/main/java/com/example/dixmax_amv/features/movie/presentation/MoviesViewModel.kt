@@ -25,10 +25,10 @@ class MoviesViewModel(private val getAllMoviesUseCase: GetAllMoviesUseCase) : Vi
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 list = getAllMoviesUseCase()
-                Log.d("MoviesViewModel", "Películas cargadas: ${list.size}")
+                Log.d("@dev", "VM : Películas cargadas -> ${list.size}")
                 _uiState.postValue(UiState(movies = list))
             } catch (e: Exception) {
-                Log.d("error", "Error al cargar la lista de Peliculas")
+                Log.d("@dev", "VM: Error al cargar la lista de Peliculas")
                 _uiState.postValue(UiState(error = true))
             }
         }
