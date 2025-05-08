@@ -42,10 +42,10 @@ class MovieDetailFragment : BottomSheetDialogFragment() {
     private fun setUpObserver() {
         val observer = Observer<MovieDetailViewModel.UiState>() {
             if (it.loading) {
-                Log.d("@dev", "Loading observer")
+                Log.d("@dev", "FG: Loading observer")
             }
             if (it.error) {
-                Log.d("@dev", "Error en el observer")
+                Log.d("@dev", "FG: Error en el observer")
             }
             bindData(it.movie)
         }
@@ -61,7 +61,7 @@ class MovieDetailFragment : BottomSheetDialogFragment() {
                 description.text = movie.description
             }
             else {
-                Log.d("@dev", "No hay datos para mostrar")
+                Log.d("@dev", "FG: No hay datos para mostrar")
             }
         }
     }

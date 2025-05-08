@@ -50,10 +50,10 @@ class MoviesFragment : Fragment() {
     private fun setUpObserver() {
         val observer = Observer<MoviesViewModel.UiState>() {
             if (it.loading) {
-                Log.d("@dev", "Cargando lista en observador")
+                Log.d("@dev", "FG: Cargando lista en observador")
             }
             if (it.error) {
-                Log.d("@dev", "Error en la carga del observador")
+                Log.d("@dev", "FG: Error en la carga del observador")
             }
             adapter.submitList(it.movies)
         }

@@ -1,5 +1,6 @@
 package com.example.dixmax_amv.features.movie.data
 
+import androidx.collection.emptyLongSet
 import com.example.dixmax_amv.features.movie.data.local.room.LocalRoomDataSource
 import com.example.dixmax_amv.features.movie.data.remote.mock.MockRemoteMoviesDataSource
 import com.example.dixmax_amv.features.movie.domain.model.Movie
@@ -12,11 +13,27 @@ class MovieDataRepository(
     private val localData: LocalRoomDataSource
 ) : MovieRepository {
     override suspend fun getAllMovies(): List<Movie> {
-        return remoteData.getAllMovies()
+        val localMovies = localData.getAllMovies()
+        return if (localMovies.isEmpty()) {
+            val remoteMovies = remoteData.getAllMovies()
+            localData.saveMovies(remoteMovies)
+            remoteMovies
+        } else {
+            localMovies
+        }
     }
 
     override suspend fun getMovieById(movieId: String): Movie? {
-        return remoteData.getMovieById(movieId)
+        val localMovie = localData.getMovieById(movieId)
+        return if (localMovie == null) {
+            val remoteMovie = remoteData.getMovieById(movieId)
+            if (remoteMovie != null) {
+                localData.saveMovie(remoteMovie)
+            }
+            remoteMovie
+        } else {
+            localMovie
+        }
     }
 
     override suspend fun saveMovie(movie: Movie) {
