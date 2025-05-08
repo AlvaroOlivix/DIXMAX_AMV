@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="16dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="110dp"
@@ -24,10 +24,10 @@
                 tools:src="@drawable/arc" />
 
             <ImageButton
-                android:id="@+id/bookmark_action"
+                android:id="@+id/favorite_action"
                 android:layout_width="32dp"
                 android:layout_height="35dp"
-                android:src="@drawable/outline_bookmark_border_24"
+                android:src="@drawable/baseline_favorite_border_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

@@ -5,26 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/lToolBar"
-        layout="@layout/main_toolbar" />
-
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Catálogo"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lToolBar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
-        app:dividerColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@id/text"
+        app:layout_constraintStart_toStartOf="@id/text"
         app:layout_constraintTop_toBottomOf="@id/text" />
 
 
@@ -33,9 +30,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lToolBar"
+        app:layout_constraintTop_toBottomOf="@id/divider"
         tools:listitem="@layout/item_movie">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/gre"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:contentDescription=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/baseline_favorite_border_24"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

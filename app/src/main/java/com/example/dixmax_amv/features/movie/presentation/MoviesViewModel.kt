@@ -16,11 +16,15 @@ class MoviesViewModel(private val getAllMoviesUseCase: GetAllMoviesUseCase) : Vi
     private var _uiState = MutableLiveData(UiState())
     val uiState: LiveData<UiState> get() = _uiState
 
+    private var list: List<Movie> = emptyList()
+
+    private var showFavorites: Boolean = false
+
     fun loadMovies() {
         _uiState.value = UiState(loading = true)
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val list = getAllMoviesUseCase()
+                list = getAllMoviesUseCase()
                 Log.d("MoviesViewModel", "Películas cargadas: ${list.size}")
                 _uiState.postValue(UiState(movies = list))
             } catch (e: Exception) {
@@ -30,6 +34,30 @@ class MoviesViewModel(private val getAllMoviesUseCase: GetAllMoviesUseCase) : Vi
         }
     }
 
+    fun setUpFavorite(movieCLicked: Movie) {
+        viewModelScope.launch(Dispatchers.IO) {
+            list = list.map { movie ->
+                if (movie.id == movieCLicked.id) {
+                    movie.copy(isFavorite = !movie.isFavorite)
+                } else {
+                    movie
+                }
+            }
+            _uiState.postValue(UiState(movies = list))
+        }
+    }
+
+    fun showFavorites() {
+        showFavorites = !showFavorites
+        viewModelScope.launch(Dispatchers.IO) {
+            val showList = if (showFavorites) {
+                list.filter { it.isFavorite }
+            } else {
+                list
+            }
+            _uiState.postValue(UiState(movies = showList))
+        }
+    }
 
     data class UiState(
         val movies: List<Movie> = emptyList(),

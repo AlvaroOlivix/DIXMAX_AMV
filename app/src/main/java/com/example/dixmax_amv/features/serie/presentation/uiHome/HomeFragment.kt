@@ -40,7 +40,8 @@ class HomeFragment : Fragment() {
             oClick = { }
         )
         movieAdapter = MoviesAdapter(
-            onCLick = {}
+            onCLick = {},
+            onClickFavorite = {}
         )
         setUpRecyclers()
         setUpObserver()

@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         setupView()
         //executeFirestore()
-        executeDB()
+        //executeDB()
     }
 
     private fun setupView() {
@@ -120,103 +120,6 @@ class MainActivity : AppCompatActivity() {
 
     @OptIn(DelicateCoroutinesApi::class)
     fun executeDB() {
-        val mockAwards = listOf(
-            Award("11", "Premio Cervantes", "2018"),
-            Award("12", "Premio Pullitzer", "2019"),
-            Award("13", "Premio Puskas", "2020"),
-            Award("14", "Premio Goya", "2021")
-        )
-
-        val mockEpisodes = listOf(Episode("222", "errr", "s4rtw", "swwwww"))
-        val mockSeason = listOf(Season("222", "errr", mockEpisodes))
-        val mockSeries = listOf(
-            Serie(
-                "01",
-                "Title",
-                "2010",
-                "Spain",
-                "9.5",
-                mockSeason,
-                "UrlPoster",
-                "4.3/5",
-                false
-            ),
-            Serie(
-                "02",
-                "Title",
-                "2010",
-                "Spain",
-                "9.5",
-                mockSeason,
-                "UrlPoster",
-                "4.3/5",
-                false
-            ), Serie(
-                "03",
-                "Title",
-                "2010",
-                "Spain",
-                "9.5",
-                mockSeason,
-                "UrlPoster",
-                "4.3/5",
-                false
-            )
-        )
-        val mockMovies = listOf(
-            Movie(
-                "01",
-                "El Secreto de Marrowborn",
-                "Pelicula de Culto española grabada en Galicia",
-                "Url del poster",
-                mockAwards[0]
-            ),
-            Movie(
-                "02",
-                "Corazones de acero",
-                "Pelçicula bélica ambientada en la 2a guerra mundial",
-                "Url del poster",
-                mockAwards[1]
-            ),
-            Movie(
-                "03",
-                "Your name in april",
-                "Pelicula animada de origen japones y creada por Eichiro Oda",
-                "Url del poster",
-                mockAwards[2]
-            ),
-            Movie(
-                "04",
-                "The Beekeper",
-                "Protagonizada por Jason Statham en Villedor",
-                "Url del poster",
-                award = mockAwards[1]
-            ),
-        )
-
-
-        val db = DataBaseProvider.provideDB(this)
-        val repoMovies =
-            MovieDataRepository(
-                MockRemoteMoviesDataSource(),
-                LocalRoomDataSource(db.movieDao())
-            )
-        val repoSeries = SeriesDataRepository(
-            LocalDbSeriesDataSource(db.serieDao()),
-            MockSeriesRemoteDataSource(),
-        )
-        val repoLinks = LinkDataRepository(
-            LinkLocalDataSource(db.linkDao()),
-            LinkRemoteMockDataSource()
-        )
-
-        val movieCreated = Movie(
-            "05", "11", "dd", "posr", mockAwards[1]
-        )
-
-        GlobalScope.launch(Dispatchers.IO) {
-
-        }
     }
 }
 

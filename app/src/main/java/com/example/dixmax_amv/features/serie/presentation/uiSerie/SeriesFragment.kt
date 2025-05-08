@@ -43,27 +43,30 @@ class SeriesFragment : Fragment() {
         setUpRecycler()
         setUpObserver()
         viewModel.loadSeries()
-        binding.lToolBar.mainToolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.action -> {
-                    viewModel.showBookMarked()
-                    if (viewModel.isBookmarked) {
-                        it.setIcon(R.drawable.baseline_bookmark_24)
-                    } else (it.setIcon(R.drawable.outline_bookmark_border_24))
-                    true
-                }
+        binding.apply {
+            lToolBar.mainToolbar.setTitle("Series")
+            lToolBar.mainToolbar.setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.action -> {
+                        viewModel.showBookMarked()
+                        if (viewModel.isBookmarked) {
+                            it.setIcon(R.drawable.baseline_bookmark_24)
+                        } else (it.setIcon(R.drawable.outline_bookmark_border_24))
+                        true
+                    }
 
-                R.id.newest -> {
-                    viewModel.showNewest()
-                    true
-                }
+                    R.id.newest -> {
+                        viewModel.showNewest()
+                        true
+                    }
 
-                R.id.ageRate -> {
-                    viewModel.showAgeRated()
-                    true
-                }
+                    R.id.ageRate -> {
+                        viewModel.showAgeRated()
+                        true
+                    }
 
-                else -> false
+                    else -> false
+                }
             }
         }
     }
